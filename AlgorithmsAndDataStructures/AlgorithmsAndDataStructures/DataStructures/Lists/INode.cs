@@ -13,5 +13,7 @@ namespace DataStructures.Lists
         T Data { get; set; }
 
         void Invalidate();
+
+        Guid GetCode();
     }
 }

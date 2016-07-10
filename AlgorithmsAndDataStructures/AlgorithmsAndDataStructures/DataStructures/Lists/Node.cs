@@ -12,6 +12,12 @@ namespace DataStructures.Lists
         private INode<T> _next;
         private INode<T> _prev;
 
+        private readonly Guid _code;
+        public Node()
+        {
+            _code = Guid.NewGuid(); ;
+        }
+
         public T Data
         {
             get { return _data; }
@@ -40,16 +46,22 @@ namespace DataStructures.Lists
         {
             if (other == null) return -1;
 
-            return Data.CompareTo(other.Data);
+            return GetCode().CompareTo(other.GetCode());
+            //return Data.CompareTo(other.Data);
         }
 
 
-
-       
-
         public void Invalidate()
         {
-            throw new NotImplementedException();
+            _next = null;
+            _prev = null;
+            Data = default(T);
+        }
+
+
+        public Guid GetCode()
+        {
+            return _code;
         }
     }
 }
