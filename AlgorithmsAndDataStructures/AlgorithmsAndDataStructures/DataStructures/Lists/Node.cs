@@ -15,7 +15,9 @@ namespace DataStructures.Lists
         private readonly Guid _code;
         public Node()
         {
-            _code = Guid.NewGuid(); ;
+            _code = Guid.NewGuid();
+            Next = null;
+            Data = default(T);
         }
 
         public T Data
@@ -35,12 +37,7 @@ namespace DataStructures.Lists
             set { _prev = value; }
         }
 
-        public Node()
-        {
-            Next = null;
-            Data = default(T);
-        }
-
+         
 
         public int CompareTo(INode<T> other)
         {
