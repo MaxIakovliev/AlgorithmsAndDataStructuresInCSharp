@@ -19,7 +19,7 @@ namespace AlgorithmsAandDataStructures.DataStructures.Lists
         }
         public void Push(T item)
         {
-            data.Add(item);
+            data.AddLast(item);
         }
 
         public T Pop()
