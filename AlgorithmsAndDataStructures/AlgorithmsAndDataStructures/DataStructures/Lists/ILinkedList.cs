@@ -37,6 +37,11 @@ namespace DataStructures.Lists
 
         void RemoveLast();
 
+        T GetFirst();
+
+        T GetLast();
+
+        T Get(int index);
 
     }
 }

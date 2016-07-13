@@ -187,5 +187,21 @@ namespace DataStructures.Lists
                 _count--;
             }
         }
+
+
+        public T GetFirst()
+        {
+            throw new NotImplementedException();
+        }
+
+        public T GetLast()
+        {
+            throw new NotImplementedException();
+        }
+
+        public T Get(int index)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
