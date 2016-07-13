@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlgorithmsAandDataStructures.DataStructures.Lists
+namespace DataStructures.Lists
 {
     public interface IStack<T> where T:IComparable<T>
     {

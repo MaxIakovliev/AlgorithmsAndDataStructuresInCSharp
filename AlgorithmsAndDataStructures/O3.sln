@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgorithmsAndDataStructures", "AlgorithmsAndDataStructures\AlgorithmsAndDataStructures.csproj", "{580F7101-6829-4E65-860C-05A75B1D95FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "O3", "AlgorithmsAndDataStructures\O3.csproj", "{580F7101-6829-4E65-860C-05A75B1D95FD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{3D3F333F-84F3-4E31-9E62-413EBC54216C}"
 EndProject

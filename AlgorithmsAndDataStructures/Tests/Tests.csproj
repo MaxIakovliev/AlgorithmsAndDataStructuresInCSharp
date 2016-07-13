@@ -55,9 +55,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AlgorithmsAndDataStructures\AlgorithmsAndDataStructures.csproj">
+    <ProjectReference Include="..\AlgorithmsAndDataStructures\O3.csproj">
       <Project>{580f7101-6829-4e65-860c-05a75b1d95fd}</Project>
-      <Name>AlgorithmsAndDataStructures</Name>
+      <Name>O3</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

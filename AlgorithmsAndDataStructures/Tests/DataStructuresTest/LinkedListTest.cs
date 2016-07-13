@@ -14,7 +14,7 @@ namespace Tests.DataStructuresTest
         public void TestLinkedListAdd()
         {
             var linkedList = new DataStructures.Lists.LinkedList<bool>(() => new DataStructures.Lists.Node<bool>());
-            var size = Int32.MaxValue/10;
+            var size = 100;
             for(int i=0; i<size; i++)
             {
                 linkedList.Add(true);
