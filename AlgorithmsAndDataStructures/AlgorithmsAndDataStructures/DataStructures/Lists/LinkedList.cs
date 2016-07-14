@@ -100,6 +100,9 @@ namespace DataStructures.Lists
             _head = _createInstance();
             _head.Data = item;
             _head.Next = tmp;
+            if (tmp != null)
+                tmp.Prev = _head;
+            _count++;
         }
 
         public void AddFirst(INode<T> item)
@@ -128,7 +131,7 @@ namespace DataStructures.Lists
         public void Clear()
         {
             var tmp = _head;
-            while(tmp!=null)
+            while (tmp != null)
             {
                 var cur = tmp;
                 tmp = tmp.Next;
@@ -191,17 +194,35 @@ namespace DataStructures.Lists
 
         public T GetFirst()
         {
-            throw new NotImplementedException();
+            if (_head == null)
+            {
+                throw new Exception("Linked list is empty");
+            }
+            return _head.Data;
         }
 
         public T GetLast()
         {
-            throw new NotImplementedException();
+            if (_current == null)
+                throw new Exception("Linked list is empty");
+
+            return _current.Data;
         }
 
         public T Get(int index)
         {
-            throw new NotImplementedException();
+            int count = 0;
+            var tmp = _head;
+            while (count < index)
+            {
+                if (tmp.Next == null)
+                {
+                    throw new IndexOutOfRangeException("specified index out of range");
+                }
+                tmp = tmp.Next;
+                count++;
+            }
+            return tmp.Data;
         }
     }
 }

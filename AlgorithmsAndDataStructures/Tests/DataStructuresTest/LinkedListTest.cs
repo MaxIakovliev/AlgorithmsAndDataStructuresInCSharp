@@ -23,5 +23,26 @@ namespace Tests.DataStructuresTest
             Assert.AreEqual(size, linkedList.Count);
         }
 
+
+        [Test]
+        public void TestLinkedListAddFirst()
+        {
+            var linkedList = new DataStructures.Lists.LinkedList<int>(() => new DataStructures.Lists.Node<int>());
+            var size = 100;
+            for (int i = 0; i < size; i++)
+            {
+                linkedList.AddFirst(i);
+            }
+
+            Assert.AreEqual(size, linkedList.Count);
+
+            for (int i = 0; i < size; i++)
+            {
+                Assert.AreEqual(size-1-i, linkedList.Get(i));
+            }
+
+
+        }
+
     }
 }
