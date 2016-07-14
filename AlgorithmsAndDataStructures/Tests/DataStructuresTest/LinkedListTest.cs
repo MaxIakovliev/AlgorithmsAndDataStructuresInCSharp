@@ -61,5 +61,25 @@ namespace Tests.DataStructuresTest
 
             }
         }
+
+
+        [Test]
+        public void TestLinkedListRemoveLast()
+        {
+            var linkedList = new DataStructures.Lists.LinkedList<int>(() => new DataStructures.Lists.Node<int>());
+            for (int i = 0; i < _size; i++)
+            {
+                linkedList.AddFirst(i);
+            }
+
+            Assert.AreEqual(_size, linkedList.Count);
+
+            for (int i = 0; i < _size; i++)
+            {
+                Assert.AreEqual(i, linkedList.GetLast());
+                linkedList.RemoveLast();
+
+            }
+        }
     }
 }

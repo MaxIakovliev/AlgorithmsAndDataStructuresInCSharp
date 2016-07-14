@@ -96,20 +96,34 @@ namespace DataStructures.Lists
 
         public void AddFirst(T item)
         {
+            bool updateCurrent = false;
+            if (_head == null)
+                updateCurrent = true;
+            
             var tmp = _head;
             _head = _createInstance();
             _head.Data = item;
             _head.Next = tmp;
             if (tmp != null)
                 tmp.Prev = _head;
+
+            if (updateCurrent)
+                _current = _head;
+            
             _count++;
         }
 
         public void AddFirst(INode<T> item)
         {
+            bool updateCurrent=false;
+            if (_head == null)
+                updateCurrent = true;
+
             var tmp = _head;
             _head = item;
             _head.Next = tmp;
+            if (updateCurrent)
+                _current = _head;
             _count++;
         }
 
