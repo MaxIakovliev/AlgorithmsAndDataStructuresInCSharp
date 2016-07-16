@@ -42,9 +42,7 @@ namespace DataStructures.Lists
         public int CompareTo(INode<T> other)
         {
             if (other == null) return -1;
-
             return GetCode().CompareTo(other.GetCode());
-            //return Data.CompareTo(other.Data);
         }
 
 

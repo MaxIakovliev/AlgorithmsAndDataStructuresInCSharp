@@ -31,6 +31,8 @@ namespace DataStructures.Lists
 
         bool Contains(T value);
 
+        bool Exists(INode<T> item);
+
         INode<T> Find(T item);
 
         void RemoveFirst();

@@ -238,5 +238,11 @@ namespace DataStructures.Lists
             }
             return tmp.Data;
         }
+
+
+        public bool Exists(INode<T> item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
