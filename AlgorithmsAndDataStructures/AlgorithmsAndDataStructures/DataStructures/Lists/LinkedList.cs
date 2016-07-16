@@ -78,7 +78,7 @@ namespace DataStructures.Lists
             newNextItem.Data = newItem;//store value into newly created node
             newNextItem.Prev = existingItem;
             newNextItem.Next = exNext;
-            exNext.Next = newNextItem;
+            //exNext.Next = newNextItem;
             _count++;
         }
 
@@ -184,11 +184,14 @@ namespace DataStructures.Lists
 
         public void RemoveFirst()
         {
-            if (_head != null && _head.Next != null)
+            if (_head != null)
             {
                 var oldHead = _head;
                 _head = _head.Next;
-                _head.Prev = null;
+                if (_head != null)
+                {
+                    _head.Prev = null;
+                }
                 oldHead.Invalidate();
                 _count--;
             }
