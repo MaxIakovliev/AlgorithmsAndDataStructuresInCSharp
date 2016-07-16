@@ -58,5 +58,12 @@ namespace DataStructures.Lists
         {
             return _code;
         }
+
+        //public static bool operator == (T x, T y)
+        //{
+        //    if (x == null || y == null)
+        //        return false;
+        //    return x.Equals(y);
+        //}
     }
 }

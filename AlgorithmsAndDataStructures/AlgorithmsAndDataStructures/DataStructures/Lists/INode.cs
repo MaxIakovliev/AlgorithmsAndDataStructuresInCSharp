@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataStructures.Lists
 {
-    public interface INode<T> : IComparable<INode<T>> where T : IComparable<T>
+    public interface INode<T> : IComparable<INode<T>> where T : IComparable<T> 
     {
         INode<T> Next { get; set; }
         INode<T> Prev { get; set; }
@@ -15,5 +15,6 @@ namespace DataStructures.Lists
         void Invalidate();
 
         Guid GetCode();
+
     }
 }

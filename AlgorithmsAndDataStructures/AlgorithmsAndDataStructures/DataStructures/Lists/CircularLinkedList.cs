@@ -119,10 +119,10 @@ namespace DataStructures.Lists
             if (!Exists(existingItem))
                 throw new Exception("Specified  item is not exists in List");
 
-            if(Exists(newItem))
+            if (Exists(newItem))
                 throw new Exception("Specified  item is ALREADY exists in List");
-            
-            if(_count<_maxCapacity)
+
+            if (_count < _maxCapacity)
             {
                 var oldNext = existingItem.Next;
                 existingItem.Next = newItem;
@@ -166,37 +166,126 @@ namespace DataStructures.Lists
 
         public void AddFirst(INode<T> item)
         {
-            throw new NotImplementedException();
+            if (Exists(item))
+            {
+                throw new Exception("Node already belong to List");
+            }
+
+            if (_count < _maxCapacity)
+            {
+                item.Next = _head;
+                _current.Next = item;
+                _head.Prev = item;
+                _head = item;
+                _count++;
+            }
         }
 
         public void AddLast(T item)
         {
-            throw new NotImplementedException();
+            if (_count < _maxCapacity)
+            {
+                _current.Next = _createInstance();
+                _current.Data = item;
+                _current.Next.Prev = _current;
+                _current = _current.Next;
+                _current.Next = _head;
+                _count++;
+            }
+            else
+            {
+                _current.Next.Data = item;
+                _current = _current.Next;
+            }
         }
 
         public void AddLast(INode<T> item)
         {
-            throw new NotImplementedException();
+            if (Exists(item))
+            {
+                throw new Exception("Node already belong to List");
+            }
+
+            if (_count < _maxCapacity)
+            {
+                _current.Next = item;
+                item.Prev = _current;
+                item.Next = _head;
+                _current = item;
+                _count++;
+            }
+            else
+            {
+                var prevNext = _current.Next;
+                _current.Next = item;
+                item.Prev = _current;
+                item.Next = prevNext.Next;
+
+                if (prevNext.Equals(_head))
+                    _head = item;
+                _current = item;
+
+                prevNext.Invalidate();
+            }
         }
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            var cur = _head;
+            while (cur != null)
+            {
+                var tmp = cur.Next;
+                cur.Invalidate();
+                cur = tmp;
+            }
         }
 
         public bool Contains(T value)
         {
-            throw new NotImplementedException();
+            if (_head == null)
+                return false;
+            var cur = _head;
+            do
+            {
+                if (cur.Data.Equals(value))
+                    return true;
+
+                cur = cur.Next;
+                 
+            } while (!cur.Equals(_head));
+            return false;
         }
 
         public INode<T> Find(T item)
         {
-            throw new NotImplementedException();
+            if (_head == null)
+                return null;
+            
+            var cur = _head;
+            do
+            {
+                if (cur.Data.Equals(item))
+                    return cur;
+
+                cur = cur.Next;
+
+            } while (!cur.Equals(_head));
+
+            return null;
         }
 
         public void RemoveFirst()
         {
-            throw new NotImplementedException();
+            if (_head == null)
+                throw new Exception("List is empty");
+
+            var tmp = _head.Next;
+            var tmpPrev = _head.Prev;
+            _head.Invalidate();
+            _head = tmp;
+            _head.Prev = tmpPrev;
+
+            _count--;
         }
 
         public void RemoveLast()
@@ -206,17 +295,30 @@ namespace DataStructures.Lists
 
         public T GetFirst()
         {
-            throw new NotImplementedException();
+            if (_head == null)
+                throw new Exception("List is empty");
+
+            return _head.Data;
         }
 
         public T GetLast()
         {
-            throw new NotImplementedException();
+            if (_head==null)
+                throw new Exception("List is empty");
+
+            return _current.Data;
         }
 
         public T Get(int index)
         {
-            throw new NotImplementedException();
+            if (_count < index)
+                throw new ArgumentOutOfRangeException("required index is out");
+
+            int count = 0;
+            var cur = _head;
+            while (count!=index)
+                cur = cur.Next;
+            return cur.Data;
         }
 
 

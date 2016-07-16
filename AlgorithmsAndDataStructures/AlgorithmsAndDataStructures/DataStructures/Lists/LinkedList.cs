@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataStructures.Lists
 {
-    public class LinkedList<T> : ILinkedList<T> where T : IComparable<T>
+    public class LinkedList<T> : ILinkedList<T> where T : IComparable<T> 
     {
         private int _count;
 
