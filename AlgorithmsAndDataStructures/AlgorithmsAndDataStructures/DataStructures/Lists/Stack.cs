@@ -1,8 +1,5 @@
 ﻿using DataStructures.Lists;
 using System;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AlgorithmsAandDataStructures.DataStructures.Lists
 {

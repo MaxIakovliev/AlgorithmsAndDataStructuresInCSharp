@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataStructures.Lists
 {
@@ -90,7 +86,7 @@ namespace DataStructures.Lists
             var newNextItem = existingItem.Next;
             newNextItem.Prev = existingItem;
             newNextItem.Next = exNext;
-            exNext.Next = newNextItem;
+            //exNext.Next = newNextItem;
             _count++;
         }
 

@@ -1,9 +1,6 @@
 ﻿using DataStructures.Lists;
 using NUnit.Framework;
 using System;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Tests.DataStructuresTest
 {
@@ -136,7 +133,7 @@ namespace Tests.DataStructuresTest
 
             linkedList.Add(node);
 
-            for(int i=0; i<9; i++)
+            for (int i = 0; i < _size; i++)
             {
                 linkedList.AddAfter(node, i);
                 Assert.AreEqual(i + 2, linkedList.Count);
@@ -147,7 +144,24 @@ namespace Tests.DataStructuresTest
         [Test]
         public void AddAfterNode()
         {
+            var linkedList = new DataStructures.Lists.LinkedList<int>(() => new DataStructures.Lists.Node<int>());
+            INode<int> node = new Node<int>
+            {
+                Data = -5
+            };
 
+            linkedList.Add(node);
+
+            for (int i = 0; i < _size; i++)
+            {
+                var current = new Node<int>
+            {
+                Data = i
+            };
+                linkedList.AddAfter(node, current);
+                Assert.AreEqual(i + 2, linkedList.Count);
+                Assert.AreEqual(i, linkedList.Get(1));
+            }
         }
 
         [Test]
