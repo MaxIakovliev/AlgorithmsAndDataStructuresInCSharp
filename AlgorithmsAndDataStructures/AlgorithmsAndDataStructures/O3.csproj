@@ -44,6 +44,8 @@
     <Compile Include="DataStructures\Lists\ILinkedList.cs" />
     <Compile Include="DataStructures\Lists\INode.cs" />
     <Compile Include="DataStructures\Lists\IQueue.cs" />
+    <Compile Include="DataStructures\Lists\ISkipList.cs" />
+    <Compile Include="DataStructures\Lists\ISkipListNode.cs" />
     <Compile Include="DataStructures\Lists\IStack.cs" />
     <Compile Include="DataStructures\Lists\LinkedList.cs" />
     <Compile Include="DataStructures\Lists\Node.cs" />
