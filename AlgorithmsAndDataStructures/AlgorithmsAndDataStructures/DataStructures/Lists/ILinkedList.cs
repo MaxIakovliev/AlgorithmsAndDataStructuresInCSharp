@@ -41,5 +41,7 @@ namespace DataStructures.Lists
 
         T Get(int index);
 
+        void Reverse();
+
     }
 }

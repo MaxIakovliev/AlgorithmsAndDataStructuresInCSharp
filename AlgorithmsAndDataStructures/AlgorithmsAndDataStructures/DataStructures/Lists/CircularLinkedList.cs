@@ -334,5 +334,11 @@ namespace DataStructures.Lists
 
             return false;
         }
+
+
+        public void Reverse()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

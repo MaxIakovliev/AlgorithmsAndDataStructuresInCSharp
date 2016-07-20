@@ -243,5 +243,27 @@ namespace DataStructures.Lists
         {
             throw new NotImplementedException();
         }
+
+        /// <summary>
+        ///  Reverse doubly linked list
+        /// </summary>
+        public void Reverse()
+        {
+            INode<T> tmp=null;// create temp node we are going to use it for swap next/prev links
+            INode<T> currentNode = _head;// head is our start point
+
+            //swap all prev/next nodes of  current  double linked list
+            while(currentNode!=null) 
+            {
+                tmp = currentNode.Prev; //store  reference to prev node in our temp variable
+                currentNode.Prev = currentNode.Next; 
+                currentNode.Next = tmp;
+
+                currentNode = currentNode.Prev;// go to next item in the list (now it's prev, because of swap)
+            }
+
+            if (tmp != null)
+                _head = tmp.Prev;
+        }
     }
 }
