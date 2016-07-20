@@ -10,8 +10,10 @@ namespace DataStructures.Lists
     {
         public int CompareTo(T other)
         {
-            throw new NotImplementedException();
+            return Data.CompareTo(other);
         }
+
+        public T Data { get; set; }
 
         public List<SkipListNode<T>> Nodes { get; set; }
         public SkipListNode(Func<ILinkedList<T>> createInstance)
