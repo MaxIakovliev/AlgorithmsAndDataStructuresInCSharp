@@ -7,8 +7,8 @@
     <ProjectGuid>{580F7101-6829-4E65-860C-05A75B1D95FD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AlgorithmsAandDataStructures</RootNamespace>
-    <AssemblyName>AlgorithmsAandDataStructures</AssemblyName>
+    <RootNamespace>O3</RootNamespace>
+    <AssemblyName>O3</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -52,6 +52,9 @@
     <Compile Include="DataStructures\Lists\SkipList.cs" />
     <Compile Include="DataStructures\Lists\SkipListNode.cs" />
     <Compile Include="DataStructures\Lists\Stack.cs" />
+    <Compile Include="DataStructures\Trees\BinaryTree.cs" />
+    <Compile Include="DataStructures\Trees\BinaryTreeNode.cs" />
+    <Compile Include="DataStructures\Trees\IBinaryTreeNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
