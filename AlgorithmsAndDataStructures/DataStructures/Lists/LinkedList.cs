@@ -1,9 +1,20 @@
-﻿using System;
+﻿/*=============================================================================
+**
+**
+** Purpose: An Node based implementation of a generic stack.
+**
+**
+=============================================================================*/
+
+using System;
 using System.Collections;
 
 namespace O3.DataStructures.Lists
 {
-    public class LinkedList<T> :  ILinkedList<T>//, IComparable<T>         where T : IComparable<T> 
+    // A simple stack of objects.  Internally it is implemented as an Node with references,
+    // Push is O(1).  
+    // Pop is  O(1).
+    public class LinkedList<T> : ILinkedList<T>//, IComparable<T>         where T : IComparable<T> 
     {
         private int _count;
 
@@ -48,7 +59,10 @@ namespace O3.DataStructures.Lists
             }
             _count++;
         }
-
+        /// <summary>
+        /// add new item to the end of current linked list
+        /// </summary>
+        /// <param name="newItem"></param>
         public void Add(INode<T> newItem)
         {
             if (_head == null)
@@ -75,7 +89,6 @@ namespace O3.DataStructures.Lists
             newNextItem.Data = newItem;//store value into newly created node
             newNextItem.Prev = existingItem;
             newNextItem.Next = exNext;
-            //exNext.Next = newNextItem;
             _count++;
         }
 
@@ -87,7 +100,6 @@ namespace O3.DataStructures.Lists
             var newNextItem = existingItem.Next;
             newNextItem.Prev = existingItem;
             newNextItem.Next = exNext;
-            //exNext.Next = newNextItem;
             _count++;
         }
 
@@ -96,7 +108,7 @@ namespace O3.DataStructures.Lists
             bool updateCurrent = false;
             if (_head == null)
                 updateCurrent = true;
-            
+
             var tmp = _head;
             _head = _createInstance();
             _head.Data = item;
@@ -106,13 +118,13 @@ namespace O3.DataStructures.Lists
 
             if (updateCurrent)
                 _current = _head;
-            
+
             _count++;
         }
 
         public void AddFirst(INode<T> item)
         {
-            bool updateCurrent=false;
+            bool updateCurrent = false;
             if (_head == null)
                 updateCurrent = true;
 
@@ -126,16 +138,36 @@ namespace O3.DataStructures.Lists
 
         public void AddLast(T item)
         {
-            _current.Next = _createInstance();
-            _current = _current.Next;
-            _current.Data = item;
+            if (_head == null)
+            {
+                _head = _createInstance();
+                _head.Data = item;
+                _current = _head;
+                _current.Prev = _head;
+            }
+            else
+            {
+                var prev = _current;
+                _current.Next = _createInstance();
+                _current = _current.Next;
+                _current.Prev = prev;
+                _current.Data = item;
+            }
             _count++;
         }
 
         public void AddLast(INode<T> item)
         {
-            _current.Next = item;
-            _current = _current.Next;
+            if (_head == null)
+            {
+                _head = item;
+                _current = _head;
+            }
+            else
+            {
+                _current.Next = item;
+                _current = _current.Next;
+            }
             _count++;
         }
 
@@ -196,12 +228,21 @@ namespace O3.DataStructures.Lists
 
         public void RemoveLast()
         {
-            if (_current != null && _current.Prev != null)
+            if (_current != null)
             {
                 var oldTail = _current;
                 _current = _current.Prev;
                 oldTail.Invalidate();
+                oldTail = null;
                 _count--;
+            }
+            if(Count==0)
+            {
+                if (_head != null)
+                {
+                    _head.Invalidate();
+                    _head = null;
+                }
             }
         }
 
@@ -240,24 +281,21 @@ namespace O3.DataStructures.Lists
         }
 
 
-        public bool Exists(INode<T> item)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         /// <summary>
         ///  Reverse doubly linked list
         /// </summary>
         public void Reverse()
         {
-            INode<T> tmp=null;// create temp node we are going to use it for swap next/prev links
+            INode<T> tmp = null;// create temp node we are going to use it for swap next/prev links
             INode<T> currentNode = _head;// head is our start point
 
             //swap all prev/next nodes of  current  double linked list
-            while(currentNode!=null) 
+            while (currentNode != null)
             {
                 tmp = currentNode.Prev; //store  reference to prev node in our temp variable
-                currentNode.Prev = currentNode.Next; 
+                currentNode.Prev = currentNode.Next;
                 currentNode.Next = tmp;
 
                 currentNode = currentNode.Prev;// go to next item in the list (now it's prev, because of swap)
@@ -266,7 +304,7 @@ namespace O3.DataStructures.Lists
             if (tmp != null)
                 _head = tmp.Prev;
         }
- 
- 
+
+
     }
 }

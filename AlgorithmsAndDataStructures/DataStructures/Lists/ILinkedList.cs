@@ -27,7 +27,6 @@ namespace O3.DataStructures.Lists
 
         bool Contains(T value);
 
-        bool Exists(INode<T> item);
 
         INode<T> Find(T item);
 
