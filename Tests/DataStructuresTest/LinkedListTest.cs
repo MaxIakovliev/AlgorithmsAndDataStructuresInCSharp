@@ -7,7 +7,7 @@ namespace Tests.DataStructuresTest
     [TestFixture]
     public class LinkedListTest
     {
-        private int _size = 1000;
+        private int _size = 3;
 
 
         [Test]
@@ -354,6 +354,25 @@ namespace Tests.DataStructuresTest
                 Assert.AreEqual(i + 1, linkedList.Count);
                 Assert.AreEqual(i, linkedList.Get(i));
             }
+        }
+
+        [Test]
+        public void Reverse()
+        {
+            var linkedList = new LinkedList<int>(() => new Node<int>());
+            for (int i = 0; i < _size; i++)
+            {
+                linkedList.AddLast(i);
+                Assert.AreEqual(i + 1, linkedList.Count);
+                Assert.AreEqual(i, linkedList.Get(i));
+            }
+            linkedList.Reverse();
+            for (int i = 0; i < _size; i++)
+            {
+                Assert.AreEqual(_size, linkedList.Count);
+                Assert.AreEqual(_size-i-1, linkedList.Get(i));
+            }
+            
         }
 
     }
