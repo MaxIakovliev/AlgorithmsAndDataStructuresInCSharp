@@ -44,6 +44,26 @@ namespace O3.DataStructures.Trees
             }
         }
 
+        public bool Contains(T item)
+        {
+            return Find(item) == null ? false : true;
+        }
+
+        public IBinaryTreeNode<T> Find(T item)
+        {
+            var current = _head;
+            while (current!=null)
+            {
+                if (current.CompareTo(item) == 0)
+                    return current;//Case 1. Found exact match
+                if (current.CompareTo(item) > 0)
+                    current = current.Left;//Case 2 item less than  current node- go to left node
+                else if (current.CompareTo(item) < 0)
+                    current = current.Right;//Case 3 item greather than cuurent node- goto right node
+            }
+            return current;
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
             throw new NotImplementedException();
