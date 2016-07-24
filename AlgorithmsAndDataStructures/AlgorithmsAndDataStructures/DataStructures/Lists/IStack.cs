@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace DataStructures.Lists
+namespace O3.DataStructures.Lists
 {
-    public interface IStack<T> where T:IComparable<T>
+    public interface IStack<T> //: IEnumerable<T> where T : IComparable<T>
     {
         void Push(T item);
         T Pop();

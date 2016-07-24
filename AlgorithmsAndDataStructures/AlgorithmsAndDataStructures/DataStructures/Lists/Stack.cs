@@ -1,14 +1,24 @@
-﻿using DataStructures.Lists;
-using System;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
-namespace AlgorithmsAandDataStructures.DataStructures.Lists
+namespace O3.DataStructures.Lists
 {
-    public class Stack<T>:IStack<T> where T : IComparable<T>
+    public class Stack<T> : IStack<T>//, IComparable<T>  where T : IComparable<T> 
     {
         private LinkedList<T> data;
         public Stack()
         {
             data = new LinkedList<T>(() => new Node<T>());
+        }
+
+        public Stack(IEnumerable<T> collection):this()
+        {
+
+        }
+        public Stack(IComparable<T> collection):this()
+        {
+
         }
         public Stack(int capacity):this()
         {
@@ -57,5 +67,6 @@ namespace AlgorithmsAandDataStructures.DataStructures.Lists
         {
             get { return data.Count; }
         }
+ 
     }
 }

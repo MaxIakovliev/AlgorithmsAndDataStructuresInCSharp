@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace DataStructures.Lists
+namespace O3.DataStructures.Lists
 {
-    public class Node<T> : INode<T> where T : IComparable<T>
+    public class Node<T> : INode<T>// where T : IComparable<T>
     {
         private T _data;
         private INode<T> _next;

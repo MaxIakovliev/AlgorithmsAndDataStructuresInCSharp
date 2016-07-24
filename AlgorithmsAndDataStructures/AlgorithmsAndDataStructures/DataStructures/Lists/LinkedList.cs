@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections;
 
-namespace DataStructures.Lists
+namespace O3.DataStructures.Lists
 {
-    public class LinkedList<T> : ILinkedList<T> where T : IComparable<T> 
+    public class LinkedList<T> :  ILinkedList<T>//, IComparable<T>         where T : IComparable<T> 
     {
         private int _count;
 
@@ -265,5 +266,7 @@ namespace DataStructures.Lists
             if (tmp != null)
                 _head = tmp.Prev;
         }
+ 
+ 
     }
 }

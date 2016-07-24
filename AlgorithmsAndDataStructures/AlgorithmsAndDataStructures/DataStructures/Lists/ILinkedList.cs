@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace DataStructures.Lists
+namespace O3.DataStructures.Lists
 {
-    public interface ILinkedList<T> where T:IComparable<T>
+    public interface ILinkedList<T> //where T:IComparable<T>
     {
         int Count { get; }
 

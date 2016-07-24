@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace DataStructures.Lists
+namespace O3.DataStructures.Lists
 {
-    public interface INode<T> : IComparable<INode<T>> where T : IComparable<T> 
+    public interface INode<T>// : IComparable<INode<T>>// where T : IComparable<T> 
     {
         INode<T> Next { get; set; }
         INode<T> Prev { get; set; }

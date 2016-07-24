@@ -21,5 +21,13 @@ namespace O3.DataStructures.Trees
         {
             return Data.CompareTo(other);
         }
+
+
+        public void Invalidate()
+        {
+            Data = default(T);
+            Right = null;
+            Left = null;
+        }
     }
 }

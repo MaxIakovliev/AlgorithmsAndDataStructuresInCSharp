@@ -1,4 +1,4 @@
-﻿using DataStructures.Lists;
+﻿using O3.DataStructures.Lists;
 using NUnit.Framework;
 using System;
 
@@ -13,7 +13,7 @@ namespace Tests.DataStructuresTest
         [Test]
         public void Add()
         {
-            var linkedList = new DataStructures.Lists.LinkedList<bool>(() => new DataStructures.Lists.Node<bool>());
+            var linkedList = new  LinkedList<bool>(() => new  Node<bool>());
             for (int i = 0; i < _size; i++)
             {
                 linkedList.Add(true);
@@ -26,7 +26,7 @@ namespace Tests.DataStructuresTest
         [Test]
         public void AddFirst()
         {
-            var linkedList = new DataStructures.Lists.LinkedList<int>(() => new DataStructures.Lists.Node<int>());
+            var linkedList = new  LinkedList<int>(() => new  Node<int>());
             for (int i = 0; i < _size; i++)
             {
                 linkedList.AddFirst(i);
@@ -44,7 +44,7 @@ namespace Tests.DataStructuresTest
         [Test]
         public void RemoveFirst()
         {
-            var linkedList = new DataStructures.Lists.LinkedList<int>(() => new DataStructures.Lists.Node<int>());
+            var linkedList = new  LinkedList<int>(() => new  Node<int>());
             for (int i = 0; i < _size; i++)
             {
                 linkedList.AddFirst(i);
@@ -63,7 +63,7 @@ namespace Tests.DataStructuresTest
         [Test]
         public void RemoveLast()
         {
-            var linkedList = new DataStructures.Lists.LinkedList<int>(() => new DataStructures.Lists.Node<int>());
+            var linkedList = new  LinkedList<int>(() => new  Node<int>());
             for (int i = 0; i < _size; i++)
             {
                 linkedList.AddFirst(i);
@@ -81,7 +81,7 @@ namespace Tests.DataStructuresTest
         [Test]
         public void IsEmptySuccess()
         {
-            var linkedList = new DataStructures.Lists.LinkedList<decimal>(() => new DataStructures.Lists.Node<decimal>());
+            var linkedList = new LinkedList<decimal>(() => new Node<decimal>());
             Assert.AreEqual(true, linkedList.IsEmpty());
 
             linkedList.Add(1m);
@@ -110,7 +110,7 @@ namespace Tests.DataStructuresTest
         [Test]
         public void IsAddNode()
         {
-            var linkedList = new DataStructures.Lists.LinkedList<UInt16>(() => new DataStructures.Lists.Node<UInt16>());
+            var linkedList = new LinkedList<UInt16>(() => new Node<UInt16>());
             for (UInt16 i = 0; i < _size; i++)
             {
                 INode<UInt16> node = new Node<UInt16>
@@ -125,7 +125,7 @@ namespace Tests.DataStructuresTest
         [Test]
         public void AddAfter()
         {
-            var linkedList = new DataStructures.Lists.LinkedList<int>(() => new DataStructures.Lists.Node<int>());
+            var linkedList = new LinkedList<int>(() => new Node<int>());
             INode<int> node = new Node<int>
                 {
                     Data = -5
@@ -144,7 +144,7 @@ namespace Tests.DataStructuresTest
         [Test]
         public void AddAfterNode()
         {
-            var linkedList = new DataStructures.Lists.LinkedList<int>(() => new DataStructures.Lists.Node<int>());
+            var linkedList = new LinkedList<int>(() => new Node<int>());
             INode<int> node = new Node<int>
             {
                 Data = -5

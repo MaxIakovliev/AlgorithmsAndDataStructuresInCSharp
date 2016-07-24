@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DataStructures.Lists
+namespace O3.DataStructures.Lists
 {
     public interface IQueue<T> where T : IComparable<T>
     {

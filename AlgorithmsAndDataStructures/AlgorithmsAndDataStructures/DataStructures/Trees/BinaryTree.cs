@@ -1,5 +1,7 @@
-﻿using System;
+﻿using O3.DataStructures.Lists;
+using System;
 using System.Collections.Generic;
+//using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +13,19 @@ namespace O3.DataStructures.Trees
         private IBinaryTreeNode<T> _head;
         private int _count;
 
+        public int Count { get { return _count; } }
+
+        public void Clear()
+        {
+            _head.Invalidate();
+            _head = null;
+        }
+
+        public void DeepClean()
+        {
+            //TODO implement deep clean
+        }
+
         public void Add(T item)
         {
             if (_head == null)
@@ -19,8 +34,8 @@ namespace O3.DataStructures.Trees
                 return;
             }
             AddTo(_head, item);
-
         }
+
         /// <summary>
         /// Recursive algorithms for adding new nodes into BinaryTree
         /// </summary>
@@ -183,15 +198,129 @@ namespace O3.DataStructures.Trees
                 }
 
             }
+            _count--;
             return true;
         }
 
-        public IEnumerator<T> GetEnumerator()
+
+        /// <summary>
+        /// Remove ALL occurances of the specified item from the tree
+        /// </summary>
+        /// <param name="item"></param>
+        public void RemoveAll(T item)
+        {
+            while (Remove(item)) { }
+        }
+
+
+        #region Pre-Order Traversal
+        /// <summary>
+        /// Performs the provided action on each binary tree value in pre-order traversal order.
+        /// </summary>
+        /// <param name="action">The action to perform</param>
+        public void PreOrderTraversal(Action<T> action)
+        {
+            PreOrderTraversal(action, _head);
+        }
+
+        private void PreOrderTraversal(Action<T> action, IBinaryTreeNode<T> node)
+        {
+            if (node != null)
+            {
+                action(node.Data);
+                PreOrderTraversal(action, node.Left);
+                PreOrderTraversal(action, node.Right);
+            }
+        }
+        #endregion
+
+
+        #region In-Order Enumeration
+        /// <summary>
+        /// Performs the provided action on each binary tree value in in-order traversal order.
+        /// </summary>
+        /// <param name="action">The action to perform</param>
+        public void InOrderTraversal(Action<T> action)
+        {
+            InOrderTraversal(action, _head);
+        }
+
+        private void InOrderTraversal(Action<T> action, IBinaryTreeNode<T> node)
+        {
+            if (node != null)
+            {
+                InOrderTraversal(action, node.Left);
+                action(node.Data);
+                InOrderTraversal(action, node.Right);
+            }
+        }
+        #endregion
+
+
+        #region Post-Order Traversal
+        /// <summary>
+        /// Performs the provided action on each binary tree value in post-order traversal order.
+        /// </summary>
+        /// <param name="action">The action to perform</param>
+        public void PostOrderTraversal(Action<T> action)
+        {
+            PostOrderTraversal(action, _head);
+        }
+
+        private void PostOrderTraversal(Action<T> action, IBinaryTreeNode<T> node)
+        {
+            if (node != null)
+            {
+                PostOrderTraversal(action, node.Left);
+                PostOrderTraversal(action, node.Right);
+                action(node.Data);
+            }
+        }
+        #endregion
+ 
+
+
+        public IEnumerator<T> InOrderTraversal()
+        {
+            if (_head != null)
+            {
+                var stack = new O3.DataStructures.Lists.Stack<IBinaryTreeNode<T>>();
+                var current = _head;
+                var isLeft = true;
+                stack.Push(current);
+                while(stack.Count>0)
+                {
+                    if(isLeft)
+                    {
+                        while(current.Left!=null)
+                        {
+                            current = current.Left;
+                            stack.Push(current);
+                        }
+                    }
+                    yield return current.Data;
+                    if(current.Right!=null)
+                    {
+                        current = current.Right;
+                        stack.Push(current);
+                        isLeft = true; //once we turned to the right- we should go left again
+                    }
+                    else
+                    {
+                        //if  we can't get aything from right node- we should pop  item from the stack
+                        current = stack.Pop();
+                        isLeft = false;
+                    }
+                }
+            }
+
+        }
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();
         }
 
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        IEnumerator<T> IEnumerable<T>.GetEnumerator()
         {
             throw new NotImplementedException();
         }
