@@ -58,6 +58,7 @@
     <Compile Include="DataStructures\Trees\BinaryTreeNode.cs" />
     <Compile Include="DataStructures\Trees\IBinaryTree.cs" />
     <Compile Include="DataStructures\Trees\IBinaryTreeNode.cs" />
+    <Compile Include="DataStructures\Trees\OrderedBinaryTree.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

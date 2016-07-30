@@ -9,7 +9,7 @@ namespace O3.DataStructures.Trees
 
     public abstract class BinaryTree<T> where T : IComparable<T>
     {
-        private IBinaryTreeNode<T> _head;
+        protected IBinaryTreeNode<T> _head;
         public int Count { get; protected set; }
         public BinaryTree()
         {
