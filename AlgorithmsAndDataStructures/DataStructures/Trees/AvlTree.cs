@@ -62,6 +62,33 @@ namespace O3.DataStructures.Trees
             return node;
         }
 
+        public T GetMin()
+        {
+            return GetMin(_head);
+        }
+
+        private T GetMin(IBalancedTreeNode<T> node)
+        {
+            if (node.Left == null)
+                return node.Data;
+
+            while (node.Left != null)
+                node = node.Left;
+
+            return node.Data;
+        }
+
+
+        public T GetMax(IBalancedTreeNode<T> node)
+        {
+            if (node.Right == null)
+                return node.Data;
+
+            while (node.Right != null)
+                node = node.Right;
+
+            return node.Data;
+        }
 
         public override IBinaryTreeNode<T> Find(T item)
         {
