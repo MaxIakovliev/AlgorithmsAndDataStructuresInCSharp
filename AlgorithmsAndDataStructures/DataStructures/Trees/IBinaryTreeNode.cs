@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace O3.DataStructures.Trees
 {
-    public interface IBinaryTreeNode<T> : IComparable<T> where T : IComparable<T>
+    public interface IBinaryTreeNode<T> :IBaseTreeNode<T>, IComparable<T> where T : IComparable<T>
     {
         IBinaryTreeNode<T> Right { get; set; }
         IBinaryTreeNode<T> Left { get; set; }
-        T Data { get; }
-
-        void Invalidate();
     }
 }

@@ -53,9 +53,13 @@
     <Compile Include="DataStructures\Lists\SkipList.cs" />
     <Compile Include="DataStructures\Lists\SkipListNode.cs" />
     <Compile Include="DataStructures\Lists\Stack.cs" />
+    <Compile Include="DataStructures\Trees\AvlTreeNode.cs" />
+    <Compile Include="DataStructures\Trees\BalancedBinaryTree.cs" />
     <Compile Include="DataStructures\Trees\BinaryTree.cs" />
     <Compile Include="DataStructures\Trees\BinarySearchTree.cs" />
     <Compile Include="DataStructures\Trees\BinaryTreeNode.cs" />
+    <Compile Include="DataStructures\Trees\IAvlTreeNode.cs" />
+    <Compile Include="DataStructures\Trees\IBaseTreeNode.cs" />
     <Compile Include="DataStructures\Trees\IBinaryTree.cs" />
     <Compile Include="DataStructures\Trees\IBinaryTreeNode.cs" />
     <Compile Include="DataStructures\Trees\OrderedBinaryTree.cs" />

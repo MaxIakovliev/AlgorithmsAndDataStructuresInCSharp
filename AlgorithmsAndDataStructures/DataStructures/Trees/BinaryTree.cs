@@ -17,7 +17,7 @@ namespace O3.DataStructures.Trees
             Count = 0;
         }
 
-        private int GetDepth(IBinaryTreeNode<T> item)
+        protected int GetDepth(IBinaryTreeNode<T> item)
         {
             if (item == null)
                 return 0;
@@ -41,6 +41,6 @@ namespace O3.DataStructures.Trees
         public abstract void Insert(T item);
 
         public abstract IBinaryTreeNode<T> Find(T item);
-
+               
     }
 }
