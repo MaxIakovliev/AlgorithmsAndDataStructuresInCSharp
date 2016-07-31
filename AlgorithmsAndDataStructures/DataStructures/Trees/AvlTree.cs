@@ -15,7 +15,7 @@ namespace O3.DataStructures.Trees
             Count = 0;
             _head = null;
         }
-        public override void Insert(T item)
+        public void Insert(T item)
         {
             _head = Insert(item, _head);
         }
@@ -90,9 +90,20 @@ namespace O3.DataStructures.Trees
             return node.Data;
         }
 
-        public override IBinaryTreeNode<T> Find(T item)
+        public IBalancedTreeNode<T> Find(T item)
         {
-            throw new NotImplementedException();
+            var tmp = _head;
+            while (tmp != null)
+            {
+                if (item.CompareTo(tmp.Data) < 0)
+                    tmp = tmp.Left;
+                else if (item.CompareTo(tmp.Data) > 0)
+                    tmp = tmp.Right;
+                else
+                    return tmp;
+            }
+            return tmp;
         }
+
     }
 }

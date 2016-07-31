@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace O3.DataStructures.Trees
 {
-    public abstract class BalancedBinaryTree<T> : BinaryTree<T> where T : IComparable<T>
+    public abstract class BalancedBinaryTree<T> where T : IComparable<T>
     {
         protected IBalancedTreeNode<T> _head { get; set; }
         public int Count { get; protected set; }
