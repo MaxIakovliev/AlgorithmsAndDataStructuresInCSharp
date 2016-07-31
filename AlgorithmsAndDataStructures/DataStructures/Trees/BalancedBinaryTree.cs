@@ -8,7 +8,7 @@ namespace O3.DataStructures.Trees
 {
     public abstract class BalancedBinaryTree<T> : BinaryTree<T> where T : IComparable<T>
     {
-        protected IAvlTreeNode<T> _head { get; set; }
+        protected IBalancedTreeNode<T> _head { get; set; }
         public int Count { get; protected set; }
 
         /// <summary>
@@ -17,7 +17,7 @@ namespace O3.DataStructures.Trees
         /// </summary>
         /// <param name="currentRoot">root of sub tree- that we are going to rotate</param>
         /// <returns> new  node  after rotation</returns>
-        protected IAvlTreeNode<T> RotateWithLeftChild(IAvlTreeNode<T> currentRoot)
+        protected IBalancedTreeNode<T> RotateWithLeftChild(IBalancedTreeNode<T> currentRoot)
         {
             if (currentRoot == null)
                 return null;
@@ -38,7 +38,7 @@ namespace O3.DataStructures.Trees
         /// </summary>
         /// <param name="currentNode"> root of sub tree for rotating</param>
         /// <returns>new root</returns>
-        protected IAvlTreeNode<T> RotateWithLeftChildDouble(IAvlTreeNode<T> currentNode)
+        protected IBalancedTreeNode<T> RotateWithLeftChildDouble(IBalancedTreeNode<T> currentNode)
         {
             currentNode.Left = RotateWithLeftChild(currentNode.Left);
             return RotateWithLeftChild(currentNode);
@@ -50,7 +50,7 @@ namespace O3.DataStructures.Trees
         /// </summary>
         /// <param name="currentNode">root of sub tree- that we are going to rotate</param>
         /// <returns>new  node  after rotation</returns>
-        protected IAvlTreeNode<T> RotateWithRightChild(IAvlTreeNode<T> currentRoot)
+        protected IBalancedTreeNode<T> RotateWithRightChild(IBalancedTreeNode<T> currentRoot)
         {
             if (currentRoot == null)
                 return null;
@@ -72,13 +72,18 @@ namespace O3.DataStructures.Trees
         /// </summary>
         /// <param name="currentRoot"></param>
         /// <returns>new root</returns>
-        protected IAvlTreeNode<T> RotateWithRightChildDouble(IAvlTreeNode<T> currentRoot)
+        protected IBalancedTreeNode<T> RotateWithRightChildDouble(IBalancedTreeNode<T> currentRoot)
         {
             currentRoot.Right = RotateWithRightChild(currentRoot.Right);
             return RotateWithRightChild(currentRoot);
         }
 
-        protected int GetDepth(IAvlTreeNode<T> item)
+        /// <summary>
+        /// Calculate depth/height of current sub/tree
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        protected int GetDepth(IBalancedTreeNode<T> item)
         {
             if (item == null)
                 return 0;
@@ -94,6 +99,10 @@ namespace O3.DataStructures.Trees
             return rh > lh ? rh : lh;
         }
 
+        /// <summary>
+        /// calculate depth/height for whole tree
+        /// </summary>
+        /// <returns></returns>
         public int GetDepth()
         {
             return GetDepth(_head);

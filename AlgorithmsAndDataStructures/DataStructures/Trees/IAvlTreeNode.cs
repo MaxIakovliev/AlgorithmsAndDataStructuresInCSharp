@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace O3.DataStructures.Trees
 {
-    public interface IAvlTreeNode<T> : IBaseTreeNode<T>, IComparable<T> where T : IComparable<T>
+    public interface IBalancedTreeNode<T> : IBaseTreeNode<T>, IComparable<T> where T : IComparable<T>
     {
-        IAvlTreeNode<T> Right { get; set; }
-        IAvlTreeNode<T> Left { get; set; }
+        IBalancedTreeNode<T> Right { get; set; }
+        IBalancedTreeNode<T> Left { get; set; }
         int Height { get; set; }
     }
 }

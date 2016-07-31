@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace O3.DataStructures.Trees
 {
-    public class AvlTreeNode<T> : IAvlTreeNode<T>, IComparable<T> where T : IComparable<T>
+    public class AvlTreeNode<T> : IBalancedTreeNode<T>, IComparable<T> where T : IComparable<T>
     {
 
         public int Height { get; set; }
 
-        public IAvlTreeNode<T> Right { get; set; }
+        public IBalancedTreeNode<T> Right { get; set; }
 
-        public IAvlTreeNode<T> Left { get; set; }
+        public IBalancedTreeNode<T> Left { get; set; }
 
         public T Data { get; private set; }
 
