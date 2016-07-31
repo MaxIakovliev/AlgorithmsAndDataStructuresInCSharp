@@ -17,26 +17,6 @@ namespace O3.DataStructures.Trees
             Count = 0;
         }
 
-        protected int GetDepth(IBinaryTreeNode<T> item)
-        {
-            if (item == null)
-                return 0;
-
-            int lh, rh;
-            lh = rh = 0;
-            if (item.Left != null)
-                lh += GetDepth(item.Left);
-
-            if (item.Right != null)
-                rh += GetDepth(item.Right);
-
-            return rh > lh ? rh : lh;
-        }
-
-        public int GetDepth()
-        {
-            return GetDepth(_head);
-        }
 
         public abstract void Insert(T item);
 
