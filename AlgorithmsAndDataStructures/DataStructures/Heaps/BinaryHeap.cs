@@ -8,24 +8,80 @@ namespace O3.DataStructures.Heaps
 {
     public class BinaryHeap<T> : IHeap<T> where T : IComparable<T>
     {
-        private List<T> data;
-        public BinaryHeap()
+        public enum HeapType
         {
-            data = new List<T>();
+            MaxHeap,
+            MinHeap
+        }
+        private List<T> _data;
+        private HeapType _type;
+        public BinaryHeap( HeapType heapType)
+        {
+            _data = new List<T>();
+            _type = heapType;
         }
         public void Add(T item)
         {
-            data.Add(item);
+            _data.Add(item);
+            if (_type == HeapType.MaxHeap)
+                HeapUp(_data.Count - 1);
+            else 
+                HeadDown(_data.Count - 1);
+        }
+
+        private void HeadDown(int idx)
+        {
+            var item = _data[idx];
+            if (item == null)
+                return;
+
+            while(idx>=0)
+            {
+                int parentIdx = GetParent(idx);
+                if (parentIdx < 0)
+                    return;
+                var parentItem = _data[parentIdx];
+
+                if(item.CompareTo(parentItem)<0)
+                {
+                    _data[parentIdx] = item;
+                    _data[idx] = parentItem;
+                }
+            }
         }
 
         public T PeekHead()
         {
-            return data[0];
+            return _data[0];
         }
 
         public T PopHead()
         {
-            throw new NotImplementedException();
+            var item = _data[0];
+            _data.RemoveAt(0);
+            return item;
+        }
+
+        private void HeapUp(int idx)
+        {
+            var item = _data[idx];
+            if (item == null)
+                return;
+
+            while (idx >= 0)
+            {
+                int parentIdx = GetParent(idx);
+                if (parentIdx < 0)
+                    return;
+
+                var parentItem = _data[parentIdx];
+                if (item.CompareTo(parentItem) > 0)
+                {
+                    _data[parentIdx] = item;
+                    _data[idx] = parentItem;
+                }
+                idx = parentIdx;
+            }
         }
 
         private int GetParent(int idx)
