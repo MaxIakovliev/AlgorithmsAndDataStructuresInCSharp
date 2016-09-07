@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithms\Sort\ISort.cs" />
+    <Compile Include="Algorithms\Sort\Selection.cs" />
     <Compile Include="DataStructures\Heaps\BinaryHeap.cs" />
     <Compile Include="DataStructures\Heaps\IHeap.cs" />
     <Compile Include="DataStructures\Lists\CircularLinkedList.cs" />
